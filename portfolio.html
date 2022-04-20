@@ -70,10 +70,44 @@ a.hoverEffect:hover {
 <h2>Database Project</h2>
 <p>This Enhanced Entity Relationship diagram was made for a project in my Databases class. It was created in MySQLWorkbench.</p>
 <img src="images/Database.png" alt="Database Image" width="1000" height="650">
-<h2>Fourth Project</h2>
-<p>paragraph 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<img src="images/Test Image.png" alt="test image" width="1000" height="600">
+<h2>Towers of Hanoi Solver</h2>
+<p>This is a program we modified for class to solve the Towers of Hanoi game using a restricted ruleset where you can only move to an adjacent peg. It receives input on the size of the tower then outputs the list of moves that need to be made. It uses a recursive method to keep the algorithm simple to read.</p>
+<pre>
+<code>
+  package HW3;
+
+import java.util.Scanner;
+
+public class TowersOfHanoi {
+
+    public static String showMoves(int n, char startPeg,
+            char destPeg, char tempPeg) {
+        if (n == 1) {
+            return "Move disk 1 from peg " + startPeg
+                    + " to peg " + tempPeg + " and then to " + destPeg +"\n";
+        }
+        else { // Recursive step
+            return showMoves(n - 1, startPeg, destPeg, tempPeg)
+                    + "Move disk " + n + " from peg " + startPeg
+                    + " to peg " + tempPeg + "\n"
+                    + showMoves(n - 1, destPeg, startPeg, tempPeg)
+                    + "Move disk " + n + " from peg " + tempPeg
+                    + " to peg " + destPeg + "\n"
+                    + showMoves(n - 1, startPeg, destPeg, tempPeg);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter number of disks ");
+        int nDisks = in.nextInt();
+        String moves = showMoves(nDisks, 'L', 'R', 'M');
+        System.out.println(moves);
+    }
+}
+
+</code>
+</pre>
 <h2>Outer Wilds Map</h2>
 <p>This iPhone app is an interactive map for the game Outer Wilds. It is also written in Swift.</p>
 <img src="images/Outer_Wilds.png" alt="test image" width="750" height="600">
